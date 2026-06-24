@@ -3,6 +3,7 @@
 import { EnvelopeIcon, LockIcon, ArrowRightIcon, UserIcon } from '@phosphor-icons/react'
 
 import { Input, Button } from '@/shared/components'
+import { PasswordStrength } from './passwordStrength'
 
 export function SignUpForm() {
     return(
@@ -28,13 +29,8 @@ export function SignUpForm() {
                     onChange={() => {}}
                 />
 
-                <Input.Password
-                    label='Password'
-                    name='password'
-                    placeholder={<><LockIcon size={28}/> <p>**********</p></>}
-                    onChange={() => {}}
-                    value=''
-                    showForgot
+                <PasswordStrength 
+                    password='adsadadsd__123SDASDasdasd123123_@@'
                 />
 
                  <Button

@@ -8,7 +8,7 @@ import { Button, Divider } from '@/shared/components'
 
 export default function AuthScreen() {
     const { page, setPage } = useAuthStore()
-    
+
     return (
         <section className='w-1/2 p-16 pb-0'>
             <header className='flex items-center gap-4 mb-10'>
