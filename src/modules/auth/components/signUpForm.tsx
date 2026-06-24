@@ -1,0 +1,49 @@
+'use client'
+
+import { EnvelopeIcon, LockIcon, ArrowRightIcon, UserIcon } from '@phosphor-icons/react'
+
+import { Input, Button } from '@/shared/components'
+
+export function SignUpForm() {
+    return(
+        <>
+            <h2 className='text-5xl'>Start creating</h2>
+            <h3 className='text-xl mt-4 mb-8'>Join the smart automation revolution.</h3>
+            
+            <form className='flex flex-col gap-6'>
+                <Input.Text
+                    label='Full Name'
+                    name='username'
+                    placeholder={<><UserIcon size={28}/> <p>Ex: John Doe</p></>}
+                    value=''
+                    onChange={() => {}}
+                />
+
+                <Input.Text
+                    label='Work Email'
+                    name='email'
+                    type='email'
+                    placeholder={<><EnvelopeIcon size={28}/> <p>name@company.com</p></>}
+                    value=''
+                    onChange={() => {}}
+                />
+
+                <Input.Password
+                    label='Password'
+                    name='password'
+                    placeholder={<><LockIcon size={28}/> <p>**********</p></>}
+                    onChange={() => {}}
+                    value=''
+                    showForgot
+                />
+
+                 <Button
+                    shadow
+                >
+                    <p>Create Free Account</p>
+                    <ArrowRightIcon weight='bold' size={28}/>
+                </Button>
+            </form>
+        </>
+    )
+}
