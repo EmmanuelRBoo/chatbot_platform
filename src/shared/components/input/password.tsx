@@ -19,12 +19,12 @@ export default function Password(props: PasswordProps) {
 
                 {
                     props.showForgot && (
-                        <Link 
-                            href='/forgot-password' 
+                        <span
+                            onClick={props.showForgot}
                             className='text-primary-200 ml-auto cursor-pointer hover:underline'
                         >
                             Forgot Password?
-                        </Link>
+                        </span>
                     )
                 }
             </p>
@@ -33,13 +33,13 @@ export default function Password(props: PasswordProps) {
                     id={props.name}
                     name={props.name}
                     type={show ? 'text' : 'password'}
-                    className='w-full rounded-sm bg-gscale-400 py-4 px-8 focus:ring focus:ring-primary-200'
-                    value={props.value}
+                    className='w-full rounded-sm bg-gscale-400 px-8 py-3 focus:ring focus:ring-primary-200 max-h-13'
+                    value={props.value ?? ''}
                     onChange={({ target }) => props.onChange(target.value)}
                 />
 
                 {
-                    props.value == '' 
+                    !props.value
                     ? (
                         <div className='absolute flex items-center gap-4 cursor-text -translate-y-1/2 top-1/2 left-8 opacity-40'>
                             {props.placeholder}

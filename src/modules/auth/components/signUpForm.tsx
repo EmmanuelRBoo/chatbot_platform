@@ -1,23 +1,27 @@
 'use client'
 
-import { EnvelopeIcon, LockIcon, ArrowRightIcon, UserIcon } from '@phosphor-icons/react'
+import { EnvelopeIcon, ArrowRightIcon, UserIcon } from '@phosphor-icons/react'
 
 import { Input, Button } from '@/shared/components'
+import { useAuth } from '../hooks/useAuth'
+
 import { PasswordStrength } from './passwordStrength'
 
 export function SignUpForm() {
+    const { handleSignUp, signUp, loading, fetchSignUp } = useAuth()
+
     return(
         <>
             <h2 className='text-5xl'>Start creating</h2>
             <h3 className='text-xl mt-4 mb-8'>Join the smart automation revolution.</h3>
             
-            <form className='flex flex-col gap-6'>
+            <form onSubmit={fetchSignUp} className='flex flex-col gap-6'>
                 <Input.Text
                     label='Full Name'
                     name='username'
                     placeholder={<><UserIcon size={28}/> <p>Ex: John Doe</p></>}
-                    value=''
-                    onChange={() => {}}
+                    value={signUp.username}
+                    onChange={(username) => handleSignUp({ username })}
                 />
 
                 <Input.Text
@@ -25,16 +29,18 @@ export function SignUpForm() {
                     name='email'
                     type='email'
                     placeholder={<><EnvelopeIcon size={28}/> <p>name@company.com</p></>}
-                    value=''
-                    onChange={() => {}}
+                    value={signUp.email}
+                    onChange={(email) => handleSignUp({ email })}
                 />
 
                 <PasswordStrength 
-                    password='adsadadsd__123SDASDasdasd123123_@@'
+                    password={signUp.password}
+                    setPassword={(password) => handleSignUp({ password })}
                 />
 
                  <Button
                     shadow
+                    loading={loading}
                 >
                     <p>Create Free Account</p>
                     <ArrowRightIcon weight='bold' size={28}/>

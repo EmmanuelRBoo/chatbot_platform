@@ -5,13 +5,13 @@ export type InputProps = {
 }
 
 export type TextProps = InputProps & {
-    type?: 'email' | 'text'
-    value: string
     onChange: (value: string) => void
+    type?: 'email' | 'text'
+    value?: string
 }
 
 export type PasswordProps = InputProps & {
-    value: string
     onChange: (value: string) => void
-    showForgot?: boolean
+    value?: string
+    showForgot?: () => void
 }

@@ -29,7 +29,8 @@
 
   --gscale-100: #DAE2FD;
   --gscale-400: #283044;
-  --gscale-500: #0F172A;
+  --gscale-500: #131B2E;
+  --gscale-600: #0F172A;
 }
 
 @theme inline {
@@ -60,6 +61,7 @@
   --color-gscale-100: var(--gscale-100);
   --color-gscale-400: var(--gscale-400);
   --color-gscale-500: var(--gscale-500);
+  --color-gscale-600: var(--gscale-600);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

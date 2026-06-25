@@ -3,9 +3,9 @@ export default function SidePanelScreen() {
         <div className='w-1/2 h-screen bg-gscale-400'>
             <div className='h-2/3 relative'>
                 <div className='w-96 h-96 absolute top-86 left-1/2 -translate-1/2 rounded-xl border border-tertiary-100'></div>
-                <div className='w-80 h-80 absolute top-86 left-1/2 -translate-1/2 motion-safe:animate-[spin_10s_linear_infinite] rounded-xl border border-secondary-100' >
+                <div className='w-72 h-72 absolute top-86 left-1/2 -translate-1/2 motion-safe:animate-[spin_10s_linear_infinite] rounded-xl border border-secondary-100' >
                     <div className='relative'>
-                        <div className='w-8 h-8 shadow-[0_0_30px_var(--color-secondary-100)] bg-secondary-100 rounded-full absolute -translate-1/2 top-39 left-0'/>
+                        <div className='w-7 h-7 shadow-[0_0_30px_var(--color-secondary-100)] bg-secondary-100 rounded-full absolute -translate-1/2 top-39 left-0'/>
                     </div>
                 </div>
 
