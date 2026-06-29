@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import axios from 'axios'
 
 import type { LayoutProps } from '@/shared/types/layout'
 
@@ -11,11 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout(props: Readonly<LayoutProps>) {
-
-  setInterval(async () => {
-    await axios.get('https://chatbot-backend-w1ta.onrender.com/health')
-  }, 10000)
-
   return (
     <html lang='en' className='bg-gscale-500 antialiased'>
       <body>{props.children}</body>
