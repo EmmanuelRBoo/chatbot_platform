@@ -14,7 +14,7 @@ export default function RootLayout(props: Readonly<LayoutProps>) {
 
   setInterval(async () => {
     await axios.get('https://chatbot-backend-w1ta.onrender.com/health')
-  }, 10000)
+  }, 40000)
 
   return (
     <html lang='en' className='bg-gscale-500 antialiased'>
