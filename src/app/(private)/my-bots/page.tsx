@@ -1,5 +1,5 @@
+import ListBotsScreen from "@/modules/bot/ui/listBotsScreen";
+
 export default function MyBotsPage() {
-    return (
-        <>My bots</>
-    )
+  return <ListBotsScreen />;
 }

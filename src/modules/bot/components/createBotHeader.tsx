@@ -1,48 +1,38 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { ArrowLeftIcon } from '@phosphor-icons/react/dist/ssr'
+import Link from "next/link";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
 
-import { Divider } from '@/shared/components'
-import { useCreateBot } from '../hooks/useCreateBot'
-import { StageCard } from './'
+import { useCreateBot } from "../hooks/useCreateBot";
+import { StageCard } from "./";
 
 export function CreateBotHeader() {
-    const { stage } = useCreateBot()
-    
-    return (
-        <header className='p-4 relative'>
-            <Link href='/dashboard' className='text-primary-100 hover:text-primary-200 flex items-center gap-4 text-2xl'>
-                <ArrowLeftIcon size={24} weight='bold'/>
+  const { stage } = useCreateBot();
 
-                <p>Agent Creation</p>
-            </Link>
+  return (
+    <header className="p-4 relative">
+      <Link
+        href="/dashboard"
+        className="text-primary-100 hover:text-primary-200 w-fit flex items-center gap-4 text-2xl"
+      >
+        <ArrowLeftIcon size={24} weight="bold" />
 
-            <nav className='absolute -translate-1/2 top-1/2 left-1/2 mt-1'>
-                <div className='flex items-center gap-8'>
-                    <StageCard
-                        name='Prompt'
-                        stage={1}
-                        selected={stage == 1}
-                    />
+        <p>Agent Creation</p>
+      </Link>
 
-                    <div className='w-24 h-0.5 bg-gscale-400' />
+      <nav className="absolute -translate-1/2 top-1/2 left-1/2 mt-1">
+        <div className="flex items-center gap-8">
+          <StageCard name="Prompt" stage={1} selected={stage == 1} />
 
-                    <StageCard
-                        name='Diagram'
-                        stage={2}
-                        selected={stage == 2}
-                    />
+          <div className="w-24 h-0.5 bg-gscale-400" />
 
-                    <div className='w-24 h-0.5 bg-gscale-400' />
+          <StageCard name="Diagram" stage={2} selected={stage == 2} />
 
-                    <StageCard
-                        name='Configuration'
-                        stage={3}
-                        selected={stage == 3}
-                    />
-                </div>
-            </nav>
-        </header>
-    )
+          <div className="w-24 h-0.5 bg-gscale-400" />
+
+          <StageCard name="Configuration" stage={3} selected={stage == 3} />
+        </div>
+      </nav>
+    </header>
+  );
 }

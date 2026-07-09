@@ -1,28 +1,36 @@
-export type AuthPage = 'SIGNIN' | 'SIGNUP' | 'FORGOT'
+export type AuthPage = "SIGNIN" | "SIGNUP" | "FORGOT";
 
 export type AuthProps = {
-    username: string
-    email: string
-    password: string
-}
+  name: string;
+  email: string;
+  password: string;
+};
 
-export type SignInProps = Partial<Omit<AuthProps, 'username'>>
+export type SignInProps = Partial<Omit<AuthProps, "name">>;
 
-export type SignUpProps = Partial<AuthProps>
+export type SignUpProps = Partial<AuthProps>;
 
 export type AuthStoreProps = {
-    page: AuthPage
-    setPage: (page: AuthPage) => void
+  page: AuthPage;
+  setPage: (page: AuthPage) => void;
 
-    loading: boolean
-    setLoading: (load: boolean) => void
+  loading: boolean;
+  setLoading: (load: boolean) => void;
 
-    signIn: SignInProps
-    setSignIn: (signIn: SignInProps) => void
+  signIn: SignInProps;
+  setSignIn: (signIn: SignInProps) => void;
 
-    signUp: SignUpProps
-    setSignUp: (signUp: SignUpProps) => void
+  signUp: SignUpProps;
+  setSignUp: (signUp: SignUpProps) => void;
 
-    recoverEmail: string
-    setRecoverEmail: (email: string) => void
-}
+  recoverEmail: string;
+  setRecoverEmail: (email: string) => void;
+};
+
+export type SignInDto = {
+  name: string;
+  email: string;
+  token: string;
+};
+
+export type SignUpDto = SignInDto;
