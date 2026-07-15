@@ -1,8 +1,7 @@
-/*
 import { NextRequest, NextResponse } from "next/server";
 
 export function proxy(request: NextRequest) {
-  const token = request.cookies.get("token")?.value;
+  const token = request.cookies.get("token");
 
   if (!token) {
     return NextResponse.redirect(new URL("/", request.url));
@@ -20,4 +19,3 @@ export const config = {
     "/settings/:path*",
   ],
 };
-*/

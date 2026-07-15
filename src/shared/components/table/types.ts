@@ -6,7 +6,7 @@ export type TablePaginationProps = {
 export type TableColumnProps<T, K extends keyof T = keyof T> = {
   key: K;
   title: string;
-  render: (value: T[K], row: T) => React.ReactNode;
+  render?: (value: T[K], row: T) => React.ReactNode;
 };
 
 export type TableProps<T> = {
@@ -14,4 +14,5 @@ export type TableProps<T> = {
   data: T[];
   onClickRow?: (row: T) => void;
   pagination?: TablePaginationProps;
+  setPagination?: (page: number) => void;
 };

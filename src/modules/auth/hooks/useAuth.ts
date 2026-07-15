@@ -9,7 +9,16 @@ import { setCookie } from "cookies-next";
 import type { SignInProps, SignUpProps } from "../types/store";
 
 export function useAuth() {
-  const { signIn, setSignIn, signUp, setSignUp, loading, setLoading, recoverEmail, setRecoverEmail } = useAuthStore();
+  const {
+    signIn,
+    setSignIn,
+    signUp,
+    setSignUp,
+    loading,
+    setLoading,
+    recoverEmail,
+    setRecoverEmail,
+  } = useAuthStore();
   const { setUser } = useUserStore();
 
   const router = useRouter();
@@ -28,14 +37,15 @@ export function useAuth() {
     try {
       const res = await signInService(signIn);
 
-      setCookie("token", res.token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "lax",
-        path: "/",
+      setCookie("token", res.token);
+
+      await fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify({ token: res.token }),
       });
 
       setUser(res);
+
       router.push("/dashboard");
     } catch (err) {
       console.log(err);
@@ -52,15 +62,15 @@ export function useAuth() {
     try {
       const res = await signUpService(signUp);
 
-      setCookie("token", res.token, {
-        httpOnly: true,
-        //secure: true,
-        sameSite: "lax",
-        path: "/",
+      setCookie("token", res.token);
+
+      await fetch("/api/login", {
+        method: "POST",
+        body: JSON.stringify({ token: res.token }),
       });
 
       setUser(res);
-      console.log("push route");
+
       router.push("/dashboard");
     } catch (err) {
       console.log(err);
