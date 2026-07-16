@@ -1,8 +1,10 @@
+"use client";
+
 import type { RangeProps } from "./types";
 
 export function Range(props: RangeProps) {
   return (
-    <label>
+    <label className="w-full">
       <div className="flex items-center justify-between font-semibold">
         <p>{props.label}</p>
 
@@ -45,10 +47,12 @@ export function Range(props: RangeProps) {
         "
       />
 
-      <div className="flex items-center justify-between">
-        <span>{props.min || 0}</span>
-        <span>{props.max || 100}</span>
-      </div>
+      {props.showNumbers && (
+        <div className="flex items-center justify-between">
+          <span>{props.min || 0}</span>
+          <span>{props.max || 100}</span>
+        </div>
+      )}
     </label>
   );
 }

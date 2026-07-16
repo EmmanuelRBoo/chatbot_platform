@@ -8,3 +8,4 @@ export * from "./editor";
 export * from "./avatar";
 export * from "./select";
 export * from "./range";
+export * from "./toggle";

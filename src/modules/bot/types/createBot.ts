@@ -24,6 +24,11 @@ export type BotConfig = {
   textColor: string;
   typography: string;
   borderRoundness: number;
+  llm: string;
+  temperature: number;
+  topp: number;
+  instructions: string;
+  longTermMemory: boolean;
 };
 
 export type StageCardProps = {

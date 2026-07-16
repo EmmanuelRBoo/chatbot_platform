@@ -1,10 +1,9 @@
 "use client";
 
-import { MonitorIcon, PlusIcon, PaperPlaneTiltIcon } from "@phosphor-icons/react";
+import { MonitorIcon, PaperPlaneTiltIcon, FileArrowUpIcon } from "@phosphor-icons/react";
 
 import { fontOptions } from "@/shared/constants";
 import { useCreateBot } from "../hooks/useCreateBot";
-import { Avatar } from "@/shared/components";
 
 export function ConfigurationPreview() {
   const { config } = useCreateBot();
@@ -20,59 +19,87 @@ export function ConfigurationPreview() {
         style={{
           fontFamily: fontOptions.find((f) => f.key == config.typography)?.fontFamily,
         }}
-        className="flex flex-col mt-18 justify-between items-center w-full h-full"
+        className="flex flex-col mt-18 justify-between items-center w-full h-full "
       >
-        <div className="flex bg-white flex-col justify-between h-full w-full max-w-92 max-h-132 rounded-md">
-          <div style={{ backgroundColor: config.secondaryColor }} className="flex items-center p-1">
+        <div className="flex flex-col justify-between h-full w-full max-w-96 ">
+          <div
+            style={{ backgroundColor: config.primaryColor }}
+            className="flex items-center p-2 rounded-t-2xl"
+          >
             <img className="w-14 h-14" src={config.avatar || "/assets/logo.png"} alt="bot logo" />
-          </div>
 
-          <div className="p-2 flex flex-col gap-4 justify-end h-full">
-            <div
-              style={{
-                backgroundColor: config.secondaryColor,
-                borderRadius: `${config.borderRoundness}px`,
-              }}
-              className="p-4 mr-18 relative"
-            >
-              <p className="mb-2" style={{ color: config.textColor }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ullamcorper
-                nisl. Nam lacinia lacus et accumsan dictum. Praesent aliquam a dui vitae viverra.
+            <div className="flex flex-col ml-2">
+              <p style={{ color: config.textColor }} className="text-2xl font-semibold">
+                {config.botName}
               </p>
 
-              <small className="absolute bottom-1 right-4">10:40 AM</small>
+              <span style={{ color: config.textColor }} className="text-lg">
+                {config.description}
+              </span>
             </div>
+          </div>
 
+          <div className="p-2 flex flex-col gap-4 justify-end h-full bg-zinc-300">
             <div
               style={{
                 backgroundColor: config.primaryColor,
                 borderRadius: `${config.borderRoundness}px`,
               }}
-              className="p-4 ml-18 relative"
+              className="p-4 mr-18 relative"
             >
-              <p className="mb-2" style={{ color: config.textColor }}>
+              <p className="mb-2 font-semibold" style={{ color: config.textColor }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ullamcorper
-                nisl. Nam lacinia lacus et accumsan dictum. Praesent aliquam a dui vitae viverra.
+                nisl.
               </p>
 
-              <small className="absolute bottom-1 left-4">10:40 AM</small>
+              <small
+                style={{ color: config.textColor }}
+                className="absolute bottom-1 right-4 opacity-70"
+              >
+                10:40 AM
+              </small>
+            </div>
+
+            <div
+              style={{
+                backgroundColor: config.secondaryColor,
+                borderRadius: `${config.borderRoundness}px`,
+              }}
+              className="p-4 ml-18 relative"
+            >
+              <p className="mb-2 font-semibold" style={{ color: config.textColor }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut maximus ullamcorper
+                nisl.
+              </p>
+
+              <small
+                style={{ color: config.textColor }}
+                className="absolute bottom-1 left-4 opacity-70"
+              >
+                10:40 AM
+              </small>
             </div>
           </div>
 
           <div
-            style={{ borderColor: config.primaryColor }}
-            className="flex items-center gap-4 p-2 border-t"
+            style={{ borderColor: config.primaryColor, backgroundColor: config.primaryColor }}
+            className="flex items-center gap-4 py-2 px-4 border-t rounded-b-2xl"
           >
-            <PlusIcon color={config.primaryColor} size={28} weight="bold" />
+            <FileArrowUpIcon color={config.textColor} size={28} weight="bold" />
 
             <div
-              className={`border-2 rounded-md w-full h-8`}
-              style={{ borderColor: config.primaryColor }}
+              className={`border rounded-md w-full h-8`}
+              style={{ borderColor: config.textColor }}
             >
-              <p className="pl-2 mt-0.5 text-zinc-600">Write something...</p>
+              <p
+                style={{ color: config.textColor, border: config.textColor }}
+                className="pl-2 mt-0.5 opacity-60 font-semibold"
+              >
+                Write something...
+              </p>
             </div>
 
-            <PaperPlaneTiltIcon color={config.primaryColor} size={28} weight="bold" />
+            <PaperPlaneTiltIcon color={config.textColor} size={28} weight="bold" />
           </div>
         </div>
       </div>

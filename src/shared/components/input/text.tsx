@@ -23,6 +23,17 @@ export default function Text(props: TextProps) {
     }
   };
 
+  const getVariant = () => {
+    switch (props.variant) {
+      case "secondary":
+        return "bg-gscale-500 focus:border-primary-200";
+      case "default":
+        return "bg-gscale-400 focus:border-primary-200";
+      default:
+        return "bg-gscale-400 focus:border-primary-200";
+    }
+  };
+
   return (
     <label htmlFor={props.name} className="w-full font-semibold overflow-hidden">
       <p className={getFont()}>{props.label}</p>
@@ -32,7 +43,7 @@ export default function Text(props: TextProps) {
           id={props.name}
           name={props.name}
           type={props.type || "text"}
-          className={`w-full rounded-sm bg-gscale-400 py-3 px-8 focus:border focus:border-primary-200 ${getSize()}`}
+          className={`w-full rounded-sm  py-3 px-8 focus:border ${getVariant()} ${getSize()}`}
           value={props.value ?? ""}
           onChange={({ target }) => props.onChange(target.value)}
         />

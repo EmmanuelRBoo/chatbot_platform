@@ -127,3 +127,29 @@
 body {
   color: var(--gscale-100);
 }
+
+* {
+  --sb-track-color: var(--gscale-400);
+  --sb-thumb-color: var(--secondary-600);
+  --sb-size: 8px;
+}
+
+*::-webkit-scrollbar {
+  width: var(--sb-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 24px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 24px;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  }
+}

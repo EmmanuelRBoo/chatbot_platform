@@ -4,7 +4,7 @@ import { botConfigDefault } from "./defaults/config";
 import type { CreateBotStoreProps } from "../types/createBot";
 
 export const useCreateBotStore = create<CreateBotStoreProps>((set) => ({
-  stage: 1,
+  stage: 3,
   setStage: (stage) => set({ stage }),
 
   loading: false,

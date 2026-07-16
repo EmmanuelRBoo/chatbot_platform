@@ -9,4 +9,9 @@ export const botConfigDefault: BotConfig = {
   textColor: "#fff",
   typography: "",
   borderRoundness: 14,
+  llm: "",
+  temperature: 70,
+  topp: 70,
+  instructions: "",
+  longTermMemory: false,
 };

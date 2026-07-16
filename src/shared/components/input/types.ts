@@ -9,6 +9,7 @@ export type TextProps = InputProps & {
   onChange: (value: string) => void;
   type?: "email" | "text";
   value?: string;
+  variant?: "default" | "secondary";
 };
 
 export type PasswordProps = InputProps & {
@@ -20,4 +21,11 @@ export type PasswordProps = InputProps & {
 export type ColorProps = InputProps & {
   onChange: (value: string) => void;
   value: string;
+};
+
+export type TextareaProps = InputProps & {
+  placeholder: string;
+  onChange: (value: string) => void;
+  value?: string;
+  rows?: number;
 };
