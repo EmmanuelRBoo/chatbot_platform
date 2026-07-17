@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 import type { LayoutProps } from "@/shared/types/layout";
 
@@ -34,6 +35,8 @@ export function MobileWarning(props: LayoutProps) {
           full advantage of all its features.
         </p>
       </div>
+
+      <ToastContainer />
     </div>
   );
 }

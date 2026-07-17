@@ -30,4 +30,13 @@ export const useListBotStore = create<ListBotStoreProps>((set) => ({
 
   loading: false,
   setLoading: (loading) => set({ loading }),
+
+  listMeta: {
+    limit: 5,
+    page: 1,
+  },
+  setListMeta: (meta) =>
+    set((old) => {
+      return { listMeta: { ...old.listMeta, ...meta } };
+    }),
 }));

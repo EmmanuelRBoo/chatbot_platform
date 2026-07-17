@@ -1,3 +1,5 @@
+import type { ListBotStatusProps } from "./listBot";
+
 export type CreateBotStoreProps = {
   stage: number;
   setStage: (stage: number) => void;
@@ -40,4 +42,24 @@ export type StageCardProps = {
 export type CreateBotFooterProps = {
   title: React.ReactNode;
   action: () => void;
+};
+
+export type CreateBotDto = {
+  status: ListBotStatusProps;
+  mermaid: string;
+  prompt: string;
+  prompts: string[];
+  avatar: string;
+  botName: string;
+  description: string;
+  primaryColor: string;
+  secondaryColor: string;
+  textColor: string;
+  typography: string;
+  borderRoundness: number;
+  llm: string;
+  temperature: number;
+  topp: number;
+  instructions: string;
+  longTermMemory: boolean;
 };

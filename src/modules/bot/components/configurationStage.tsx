@@ -1,3 +1,5 @@
+"use client";
+
 import {
   PaletteIcon,
   BrainIcon,
@@ -107,9 +109,9 @@ export function ConfigurationStage() {
         </div>
         <Select
           label="LLM Selection"
-          onSelect={(typography) => handleConfig({ typography: typography as string })}
+          onSelect={(llm) => handleConfig({ llm: llm as string })}
           options={fontOptions}
-          value={config.typography}
+          value={config.llm}
           size="small"
         />
         <div className="flex justify-between gap-8">
@@ -126,7 +128,6 @@ export function ConfigurationStage() {
               </span>
             }
           />
-
           <Range
             label="Top-P"
             onChange={(topp) => handleConfig({ topp })}
@@ -140,7 +141,7 @@ export function ConfigurationStage() {
             }
           />
         </div>
-        asd
+
         <Input.Textarea
           label="System Instructions (Personality & Guardrails)"
           name="system"

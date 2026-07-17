@@ -1,3 +1,5 @@
+import type { PaginationProps } from "@/shared/types/pagination";
+
 export type ListBotStatusProps = "draft" | "live" | "stopped";
 
 export type ListBotProps = {
@@ -14,9 +16,17 @@ export type ListBotStoreProps = {
 
   bots: ListBotProps[];
   setBots: (bots: ListBotProps[]) => void;
+
+  listMeta: PaginationProps;
+  setListMeta: (meta: Partial<PaginationProps>) => void;
 };
 
 export type ListBotActionProps = {
   id: string;
   status: ListBotStatusProps;
+};
+
+export type ListBotResponse = {
+  data: ListBotProps[];
+  meta: PaginationProps;
 };

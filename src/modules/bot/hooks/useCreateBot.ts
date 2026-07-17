@@ -1,4 +1,10 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+
 import { useCreateBotStore } from "../stores/createBot";
+import { createBotService } from "../services";
 import type { BotConfig } from "../types/createBot";
 
 export function useCreateBot() {
@@ -14,6 +20,8 @@ export function useCreateBot() {
     config,
     setConfig,
   } = useCreateBotStore();
+
+  const router = useRouter();
 
   const nextStage = () => stage < 3 && setStage(stage + 1);
 
@@ -34,6 +42,24 @@ export function useCreateBot() {
     }
   };
 
+  const fetchBot = async () => {
+    try {
+      await createBotService({
+        ...config,
+        prompt,
+        mermaid,
+        prompts: [],
+        status: "live",
+      });
+
+      toast("Bot created successfully", { theme: "dark" });
+
+      router.push("/my-bots");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return {
     stage,
     fetchPromptStage,
@@ -49,5 +75,7 @@ export function useCreateBot() {
 
     handleConfig,
     config,
+
+    fetchBot,
   };
 }

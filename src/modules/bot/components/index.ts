@@ -10,3 +10,4 @@ export * from "./listBotStatus";
 export * from "./listBotHeader";
 export * from "./listBotAnalytics";
 export * from "./listBotActions";
+export * from "./listBotTable";

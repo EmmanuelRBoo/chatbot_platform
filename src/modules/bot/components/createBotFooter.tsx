@@ -13,7 +13,7 @@ import { useCreateBot } from "../hooks/useCreateBot";
 import type { CreateBotFooterProps } from "../types/createBot";
 
 export function CreateBotFooter() {
-  const { stage, fetchPromptStage, prevStage, loading } = useCreateBot();
+  const { stage, fetchPromptStage, fetchBot, prevStage, loading } = useCreateBot();
 
   const stages: Record<string, CreateBotFooterProps> = {
     "1": {
@@ -38,7 +38,7 @@ export function CreateBotFooter() {
           <p>Finalize & Publish</p> <RocketLaunchIcon size={24} weight="bold" />
         </>
       ),
-      action: fetchPromptStage,
+      action: fetchBot,
     },
   };
 
