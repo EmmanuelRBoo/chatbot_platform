@@ -107,6 +107,10 @@
   animation-delay: 2s;
 }
 
+.float-3 {
+  animation-delay: 1s;
+}
+
 @keyframes float {
   0% {
     transform: translateY(0);

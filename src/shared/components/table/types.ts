@@ -1,6 +1,6 @@
 export type TablePaginationProps = {
   page: number;
-  total: number;
+  total?: number;
 };
 
 export type TableColumnProps<T, K extends keyof T = keyof T> = {

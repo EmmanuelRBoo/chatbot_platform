@@ -3,12 +3,13 @@
 import { useEffect } from "react";
 
 import { Table } from "@/shared/components";
+import { date } from "@/shared/utils";
 import { ListBotStatus, ListBotActions } from "../components";
 import { useListBot } from "../hooks/useListBot";
 import type { ListBotStatusProps } from "../types/listBot";
 
 export function ListBotTable() {
-  const { bots, fetchListBots, loading } = useListBot();
+  const { bots, listMeta, fetchListBots, changePagination, loading } = useListBot();
 
   useEffect(() => {
     fetchListBots();
@@ -32,6 +33,7 @@ export function ListBotTable() {
         {
           key: "createdAt",
           title: "Created",
+          render: (createdAt) => date.format(createdAt),
         },
         {
           key: "status",
@@ -44,11 +46,8 @@ export function ListBotTable() {
           render: (_, row) => <ListBotActions id={row.id} status={row.status} />,
         },
       ]}
-      pagination={{
-        page: 1,
-        total: 5,
-      }}
-      setPagination={() => {}}
+      pagination={listMeta}
+      setPagination={changePagination}
     />
   );
 }

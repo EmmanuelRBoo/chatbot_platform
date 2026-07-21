@@ -1,5 +1,4 @@
 import type { ListBotStatusProps } from "../types/listBot";
-
 import { useListBotStore } from "../stores/listBot";
 import { listBotService } from "../services";
 
@@ -32,12 +31,23 @@ export function useListBot() {
     setLoading(false);
   };
 
+  const changePagination = (page: number) => {
+    setListMeta({
+      ...listMeta,
+      page,
+    });
+
+    fetchListBots();
+  };
+
   return {
     bots,
+    listMeta,
 
     loading,
 
     fetchChangeStatus,
     fetchListBots,
+    changePagination,
   };
 }
