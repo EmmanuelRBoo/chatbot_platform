@@ -36,6 +36,11 @@ export function ListBotTable() {
           render: (createdAt) => date.format(createdAt),
         },
         {
+          key: "updatedAt",
+          title: "Last Update",
+          render: (updatedAt) => date.format(updatedAt),
+        },
+        {
           key: "status",
           title: "Status",
           render: (status) => <ListBotStatus status={status as ListBotStatusProps} />,

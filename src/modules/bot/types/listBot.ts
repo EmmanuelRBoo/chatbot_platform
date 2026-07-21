@@ -8,6 +8,7 @@ export type ListBotProps = {
   createdAt: string;
   status: ListBotStatusProps;
   actions: string;
+  updatedAt: string;
 };
 
 export type ListBotStoreProps = {
@@ -29,4 +30,8 @@ export type ListBotActionProps = {
 export type ListBotResponse = {
   data: ListBotProps[];
   meta: PaginationProps;
+};
+
+export type UpdateStatusResponse = {
+  updatedAt: string;
 };

@@ -1,23 +1,30 @@
 import type { ListBotStatusProps } from "../types/listBot";
 import { useListBotStore } from "../stores/listBot";
-import { listBotService } from "../services";
+import { listBotService, updateStatusService } from "../services";
 
 export function useListBot() {
   const { bots, setBots, loading, setLoading, listMeta, setListMeta } = useListBotStore();
 
-  const fetchChangeStatus = (id: string, status: ListBotStatusProps) => {
-    const newBots = bots.map((bot) => {
-      if (bot.id === id) {
-        return {
-          ...bot,
-          status,
-        };
-      }
+  const fetchChangeStatus = async (id: string, status: ListBotStatusProps) => {
+    try {
+      const response = await updateStatusService(id, status);
 
-      return bot;
-    });
+      const newBots = bots.map((bot) => {
+        if (bot.id === id) {
+          return {
+            ...bot,
+            status,
+            updatedAt: response.updatedAt,
+          };
+        }
 
-    setBots(newBots);
+        return bot;
+      });
+
+      setBots(newBots);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const fetchListBots = async () => {

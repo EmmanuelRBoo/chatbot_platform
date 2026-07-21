@@ -4,7 +4,7 @@ import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(localizedFormat);
 
 function format(date: string) {
-  return dayjs(date).format("LTS");
+  return dayjs(date).format("L LTS");
 }
 
 export default {
