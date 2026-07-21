@@ -1,7 +1,5 @@
 "use client";
 
-import { RobotIcon } from "@phosphor-icons/react/ssr";
-
 import { Button, Divider } from "@/shared/components";
 import { SignInForm, SignUpForm, ForgotPasswordForm } from "../components";
 import { useAuthStore } from "../stores/auth";

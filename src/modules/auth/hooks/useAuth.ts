@@ -3,7 +3,12 @@
 import { useRouter } from "next/navigation";
 
 import { useUserStore } from "@/shared/stores/user";
-import { signInService, signUpService } from "../services";
+import {
+  signInService,
+  signUpService,
+  resetPasswordService,
+  recoverLinkService,
+} from "../services";
 import { useAuthStore } from "../stores/auth";
 import { setCookie } from "cookies-next";
 import type { SignInProps, SignUpProps } from "../types/store";
@@ -18,6 +23,8 @@ export function useAuth() {
     setLoading,
     recoverEmail,
     setRecoverEmail,
+    resetPassword,
+    setResetPassword,
   } = useAuthStore();
   const { setUser } = useUserStore();
 
@@ -85,10 +92,21 @@ export function useAuth() {
     setLoading(true);
 
     try {
-      //
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await recoverLinkService(recoverEmail);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      console.log(recoverEmail);
+  const fetchResetPassword = async (token: string) => {
+    setLoading(true);
+
+    try {
+      await resetPasswordService({ token, password: resetPassword });
+
+      router.push("/");
     } catch (err) {
       console.log(err);
     } finally {
@@ -103,6 +121,9 @@ export function useAuth() {
     handleSignUp,
     signUp,
 
+    resetPassword,
+    setResetPassword,
+
     handleRecoverEmail,
     recoverEmail,
 
@@ -111,5 +132,6 @@ export function useAuth() {
     fetchSignIn,
     fetchSignUp,
     fetchRecoverPassword,
+    fetchResetPassword,
   };
 }

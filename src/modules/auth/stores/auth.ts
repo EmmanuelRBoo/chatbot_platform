@@ -23,4 +23,7 @@ export const useAuthStore = create<AuthStoreProps>((set) => ({
 
   recoverEmail: "",
   setRecoverEmail: (recoverEmail) => set({ recoverEmail }),
+
+  resetPassword: "",
+  setResetPassword: (resetPassword) => set({ resetPassword }),
 }));

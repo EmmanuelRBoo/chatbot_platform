@@ -25,6 +25,9 @@ export type AuthStoreProps = {
 
   recoverEmail: string;
   setRecoverEmail: (email: string) => void;
+
+  resetPassword: string;
+  setResetPassword: (password: string) => void;
 };
 
 export type SignInDto = {
@@ -34,3 +37,8 @@ export type SignInDto = {
 };
 
 export type SignUpDto = SignInDto;
+
+export type ResetPasswordDto = {
+  password: string;
+  token: string;
+};
