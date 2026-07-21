@@ -5,7 +5,8 @@ import type { TableProps } from "./types";
 
 export default function TableFooter<T>(props: TableProps<T>) {
   if (props.setPagination && props.pagination) {
-    const maxPage = Math.ceil(props.pagination.total / 4);
+    const total = props.pagination.total || 0;
+    const maxPage = Math.ceil(total / 4);
 
     return (
       <div className="w-full flex items-center-safe justify-between px-8 py-2 bg-gscale-400 rounded-b-2xl">
