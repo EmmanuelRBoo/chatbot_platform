@@ -13,9 +13,7 @@ export function SignUpForm() {
   return (
     <>
       <h2 className="text-5xl">Start creating</h2>
-      <h3 className="text-xl mt-4 mb-8">
-        Join the smart automation revolution.
-      </h3>
+      <h3 className="text-xl mt-4 mb-8">Join the smart automation revolution.</h3>
 
       <form onSubmit={fetchSignUp} className="flex flex-col gap-6">
         <Input.Text
@@ -28,6 +26,7 @@ export function SignUpForm() {
           }
           value={signUp.name}
           onChange={(name) => handleSignUp({ name })}
+          full
         />
 
         <Input.Text
@@ -41,6 +40,7 @@ export function SignUpForm() {
           }
           value={signUp.email}
           onChange={(email) => handleSignUp({ email })}
+          full
         />
 
         <PasswordStrength

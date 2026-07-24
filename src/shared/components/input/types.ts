@@ -3,6 +3,7 @@ export type InputProps = {
   label: string;
   placeholder: React.ReactNode;
   size?: "small" | "default";
+  full?: boolean;
 };
 
 export type TextProps = InputProps & {

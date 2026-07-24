@@ -47,8 +47,8 @@ export function Select(props: SelectProps) {
   const renderOptions = () => {
     const opt = props.options.filter((f) => !props.value.includes(f.key));
 
-    if (opt.length === 0) {
-      return <p className="p-1">No options found</p>;
+    if (opt.length === 0 || props.options.length === 0) {
+      return <p className="p-2 bg-gscale-400 text-center">No options found</p>;
     }
 
     return opt.map((o) => (
@@ -90,7 +90,10 @@ export function Select(props: SelectProps) {
   };
 
   return (
-    <div ref={ref} className="w-full font-semibold relative">
+    <div
+      ref={ref}
+      className={`w-full ${props.full ? "" : "min-w-40 max-w-118"} font-semibold relative z-40`}
+    >
       <p className={getFont()}>{props.label}</p>
 
       <div
@@ -98,7 +101,7 @@ export function Select(props: SelectProps) {
           e.stopPropagation();
           setOpen((o) => !o);
         }}
-        className={`w-full cursor-pointer mt-2 flex items-center justify-between rounded-sm bg-gscale-400 py-3 px-8 focus:border focus:border-primary-200 ${getSize()}`}
+        className={`w-full cursor-pointer mt-2 flex items-center justify-between rounded-sm bg-gscale-400 py-3 px-8 border border-transparent focus:border-secondary-300 ${getSize()}`}
       >
         {renderLabel()}
 
@@ -106,7 +109,7 @@ export function Select(props: SelectProps) {
       </div>
 
       {open && (
-        <ul className="border border-primary-300 absolute w-full mt-1 rounded-sm max-h-60 overflow-auto">
+        <ul className="border border-primary-300 absolute z-40 w-full mt-1 rounded-sm max-h-60 overflow-auto">
           {renderOptions()}
         </ul>
       )}

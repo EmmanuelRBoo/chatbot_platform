@@ -11,4 +11,5 @@ export type SelectProps = {
   placeholder?: string;
   multi?: boolean;
   size?: "small" | "default";
+  full?: boolean;
 };

@@ -39,6 +39,7 @@ export function ConfigurationStage() {
               placeholder="Name your agent"
               size="small"
               value={config.botName}
+              full
             />
 
             <Input.Text
@@ -48,6 +49,7 @@ export function ConfigurationStage() {
               placeholder="e.g. Expert in data analysis and costume..."
               size="small"
               value={config.description}
+              full
             />
           </div>
         </div>
@@ -113,6 +115,7 @@ export function ConfigurationStage() {
           options={fontOptions}
           value={config.llm}
           size="small"
+          full
         />
         <div className="flex justify-between gap-8">
           <Range
@@ -182,6 +185,7 @@ export function ConfigurationStage() {
             variant="secondary"
             onChange={() => {}}
             placeholder="https://api.yourdomain.com/hook"
+            full
           />
         </div>
       </div>

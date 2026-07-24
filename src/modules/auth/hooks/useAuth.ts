@@ -1,16 +1,11 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { setCookie } from "cookies-next";
 
 import { useUserStore } from "@/shared/stores/user";
-import {
-  signInService,
-  signUpService,
-  resetPasswordService,
-  recoverLinkService,
-} from "../services";
+import { signInService, signUpService, resetPasswordService, recoverLinkService } from "../services";
 import { useAuthStore } from "../stores/auth";
-import { setCookie } from "cookies-next";
 import type { SignInProps, SignUpProps } from "../types/store";
 
 export function useAuth() {

@@ -20,7 +20,7 @@ export default function Textarea(props: TextareaProps) {
         <textarea
           id={props.name}
           name={props.name}
-          className={`w-full  resize-none rounded-sm bg-gscale-400 py-3 px-8 focus:border focus:border-primary-200`}
+          className={`w-full  resize-none rounded-sm bg-gscale-400 py-3 px-8 border border-transparent focus:border-secondary-300`}
           placeholder={props.placeholder}
           value={props.value ?? ""}
           onChange={({ target }) => props.onChange(target.value)}

@@ -11,6 +11,13 @@ export type ListBotProps = {
   updatedAt: string;
 };
 
+export type ListBotFiltersProps = {
+  botName: string;
+  status: string;
+  startDate?: Date;
+  endDate?: Date;
+};
+
 export type ListBotStoreProps = {
   loading: boolean;
   setLoading: (load: boolean) => void;
@@ -20,6 +27,13 @@ export type ListBotStoreProps = {
 
   listMeta: PaginationProps;
   setListMeta: (meta: Partial<PaginationProps>) => void;
+
+  showFilters: boolean;
+  setShowFilters: (show: boolean) => void;
+
+  filter: ListBotFiltersProps;
+  setFilters: (filters: Partial<ListBotFiltersProps>) => void;
+  clearFilters: () => void;
 };
 
 export type ListBotActionProps = {

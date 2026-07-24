@@ -3,7 +3,19 @@ import { useListBotStore } from "../stores/listBot";
 import { listBotService, updateStatusService } from "../services";
 
 export function useListBot() {
-  const { bots, setBots, loading, setLoading, listMeta, setListMeta } = useListBotStore();
+  const {
+    bots,
+    setBots,
+    loading,
+    setLoading,
+    listMeta,
+    setListMeta,
+    showFilters,
+    setShowFilters,
+    filter,
+    setFilters,
+    clearFilters,
+  } = useListBotStore();
 
   const fetchChangeStatus = async (id: string, status: ListBotStatusProps) => {
     try {
@@ -30,12 +42,25 @@ export function useListBot() {
   const fetchListBots = async () => {
     setLoading(true);
 
-    const response = await listBotService(listMeta);
+    const response = await listBotService(filter, listMeta);
 
     setBots(response.data);
     setListMeta(response.meta);
 
     setLoading(false);
+  };
+
+  const fetchFilters = async () => {
+    setShowFilters(false);
+
+    fetchListBots();
+  };
+
+  const fetchClearFilters = () => {
+    clearFilters();
+    setShowFilters(false);
+
+    fetchListBots();
   };
 
   const changePagination = (page: number) => {
@@ -53,8 +78,17 @@ export function useListBot() {
 
     loading,
 
+    showFilters,
+    setShowFilters,
+
+    filter,
+    setFilters,
+
     fetchChangeStatus,
     fetchListBots,
+    fetchFilters,
+    fetchClearFilters,
+
     changePagination,
   };
 }

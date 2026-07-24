@@ -136,6 +136,8 @@ body {
   --sb-track-color: var(--gscale-400);
   --sb-thumb-color: var(--secondary-600);
   --sb-size: 8px;
+
+  box-sizing: border-box;
 }
 
 *::-webkit-scrollbar {
@@ -156,4 +158,37 @@ body {
   * {
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
+}
+
+.react-datepicker__close-icon::after {
+  background-color: transparent !important;
+  font-size: 24px !important;
+  padding-bottom: 8px !important;
+  width: 32px !important;
+}
+
+.react-datepicker,
+.react-datepicker-popper {
+  background-color: transparent !important;
+  border: 1px solid var(--primary-700) !important;
+}
+
+.react-datepicker-popper .react-datepicker__header {
+  background-color: var(--primary-500);
+  border-bottom: 1px solid var(--primary-700) !important;
+  border-radius: 0 !important;
+}
+
+.react-datepicker__month-container {
+  background-color: var(--primary-300);
+}
+
+.react-datepicker__day--selected {
+  background-color: var(--secondary-700) !important;
+}
+
+.react-datepicker-popper svg {
+  color: var(--primary-700) !important;
+  fill: var(--primary-700) !important;
+  stroke: var(--primary-700) !important;
 }

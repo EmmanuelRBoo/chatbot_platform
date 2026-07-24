@@ -22,7 +22,14 @@ export function MobileWarning(props: LayoutProps) {
     };
   }, []);
 
-  if (!isSmallScreen) return props.children;
+  if (!isSmallScreen) {
+    return (
+      <>
+        {props.children}
+        <ToastContainer />
+      </>
+    );
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-gscale-400 p-6 text-center">
@@ -30,13 +37,10 @@ export function MobileWarning(props: LayoutProps) {
         <h1 className="mb-3 text-xl font-semibold">View on a larger screen</h1>
 
         <p className="text-primary-200">
-          Our platform has a variety of settings and advanced features that require more space to
-          display properly. We recommend accessing it from a computer or a larger screen to take
-          full advantage of all its features.
+          Our platform has a variety of settings and advanced features that require more space to display properly. We
+          recommend accessing it from a computer or a larger screen to take full advantage of all its features.
         </p>
       </div>
-
-      <ToastContainer />
     </div>
   );
 }

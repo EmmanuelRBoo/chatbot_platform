@@ -58,7 +58,7 @@ export default function Color(props: ColorProps) {
         />
 
         <input
-          className={`rounded-sm w-full bg-gscale-400 py-3 px-8 focus:border focus:border-primary-200 ${getSize()}`}
+          className={`rounded-sm w-full bg-gscale-400 py-3 px-8 border border-transparent focus:border-secondary-300 ${getSize()}`}
           type="text"
           value={value}
           onChange={({ target }) => isValidHex(target.value)}

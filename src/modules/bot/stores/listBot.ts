@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 import type { ListBotStoreProps } from "../types/listBot";
+import { botFiltersDefault } from "./defaults/filters";
 
 export const useListBotStore = create<ListBotStoreProps>((set) => ({
   bots: [],
@@ -17,4 +18,14 @@ export const useListBotStore = create<ListBotStoreProps>((set) => ({
     set((old) => {
       return { listMeta: { ...old.listMeta, ...meta } };
     }),
+
+  showFilters: false,
+  setShowFilters: (showFilters) => set({ showFilters }),
+
+  filter: botFiltersDefault,
+  setFilters: (filter) =>
+    set((old) => {
+      return { filter: { ...old.filter, ...filter } };
+    }),
+  clearFilters: () => set({ filter: botFiltersDefault }),
 }));

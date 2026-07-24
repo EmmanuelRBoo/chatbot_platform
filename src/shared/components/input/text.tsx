@@ -35,7 +35,10 @@ export default function Text(props: TextProps) {
   };
 
   return (
-    <label htmlFor={props.name} className="w-full font-semibold overflow-hidden">
+    <label
+      htmlFor={props.name}
+      className={`w-full ${props.full ? "" : "min-w-40 max-w-118"} font-semibold overflow-hidden`}
+    >
       <p className={getFont()}>{props.label}</p>
 
       <div className="relative mt-2">
@@ -43,7 +46,7 @@ export default function Text(props: TextProps) {
           id={props.name}
           name={props.name}
           type={props.type || "text"}
-          className={`w-full rounded-sm  py-3 px-8 focus:border ${getVariant()} ${getSize()}`}
+          className={`w-full rounded-sm py-3 px-8 border border-transparent focus:border-secondary-300 ${getVariant()} ${getSize()}`}
           value={props.value ?? ""}
           onChange={({ target }) => props.onChange(target.value)}
         />
