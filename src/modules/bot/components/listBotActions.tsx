@@ -1,17 +1,11 @@
-import {
-  PauseIcon,
-  PencilIcon,
-  TrashIcon,
-  PlayIcon,
-  ChartLineIcon,
-} from "@phosphor-icons/react/ssr";
+import { PauseIcon, PencilIcon, TrashIcon, PlayIcon, ChartLineIcon } from "@phosphor-icons/react/ssr";
 
 import { Popover } from "@/shared/components";
 import { useListBot } from "../hooks/useListBot";
 import type { ListBotActionProps } from "../types/listBot";
 
 export function ListBotActions(props: ListBotActionProps) {
-  const { fetchChangeStatus } = useListBot();
+  const { fetchChangeStatus, fetchDeleteBot } = useListBot();
 
   const renderPlayPauseStatus = () => {
     switch (props.status) {
@@ -29,12 +23,7 @@ export function ListBotActions(props: ListBotActionProps) {
       case "stopped":
         return (
           <Popover text={"Resume bot"}>
-            <PlayIcon
-              onClick={() => fetchChangeStatus(props.id, "live")}
-              cursor="pointer"
-              size={24}
-              weight="fill"
-            />
+            <PlayIcon onClick={() => fetchChangeStatus(props.id, "live")} cursor="pointer" size={24} weight="fill" />
           </Popover>
         );
       default:
@@ -50,7 +39,7 @@ export function ListBotActions(props: ListBotActionProps) {
       </Popover>
 
       <Popover text={"Delete bot"}>
-        <TrashIcon cursor="pointer" size={24} weight="fill" />
+        <TrashIcon onClick={() => fetchDeleteBot(props.id)} cursor="pointer" size={24} weight="fill" />
       </Popover>
 
       {props.status !== "draft" && (

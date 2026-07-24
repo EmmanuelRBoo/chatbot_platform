@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 import { Table } from "@/shared/components";
 import { date } from "@/shared/utils";
@@ -19,6 +20,14 @@ export function ListBotTable() {
     <Table
       data={bots}
       loading={loading}
+      noDataMessage={
+        <p className="text-3xl mt-20">
+          No bots created,{" "}
+          <Link href="/new-bot" className="text-secondary-200">
+            click here to create a new bot.
+          </Link>
+        </p>
+      }
       columns={[
         {
           key: "botName",

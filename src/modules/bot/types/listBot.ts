@@ -49,3 +49,7 @@ export type ListBotResponse = {
 export type UpdateStatusResponse = {
   updatedAt: string;
 };
+
+export type DeleteBotResponse = {
+  botName: string;
+};

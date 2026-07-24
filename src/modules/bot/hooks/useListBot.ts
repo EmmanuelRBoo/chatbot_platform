@@ -1,6 +1,7 @@
+import { notify } from "@/shared/utils";
 import type { ListBotStatusProps } from "../types/listBot";
 import { useListBotStore } from "../stores/listBot";
-import { listBotService, updateStatusService } from "../services";
+import { listBotService, updateStatusService, deleteBotService } from "../services";
 
 export function useListBot() {
   const {
@@ -63,6 +64,20 @@ export function useListBot() {
     fetchListBots();
   };
 
+  const fetchDeleteBot = async (botId: string) => {
+    try {
+      const response = await deleteBotService(botId);
+
+      notify.custom("success", `${response.botName} has successfully deleted`);
+
+      const newBots = bots.filter((bot) => bot.id !== botId);
+
+      setBots(newBots);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const changePagination = (page: number) => {
     setListMeta({
       ...listMeta,
@@ -88,6 +103,7 @@ export function useListBot() {
     fetchListBots,
     fetchFilters,
     fetchClearFilters,
+    fetchDeleteBot,
 
     changePagination,
   };

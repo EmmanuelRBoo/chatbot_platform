@@ -1,9 +1,11 @@
-import { toast } from "react-toastify";
+import { toast, ToastOptions } from "react-toastify";
 
 import { errorMessages } from "../constants";
 import type { ErrorMessages } from "../types/error";
 
-function notify() {}
+function custom(type: ToastOptions["type"], message: string) {
+  toast(message, { type, theme: "dark" });
+}
 
 function notifyError(err: any) {
   const error = err as ErrorMessages;
@@ -15,4 +17,5 @@ function notifyError(err: any) {
 
 export default {
   notifyError,
+  custom,
 };

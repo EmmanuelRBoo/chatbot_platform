@@ -12,6 +12,7 @@ export type TableColumnProps<T, K extends keyof T = keyof T> = {
 export type TableProps<T> = {
   columns: TableColumnProps<T>[];
   data: T[];
+  noDataMessage?: React.ReactNode;
   loading?: boolean;
   onClickRow?: (row: T) => void;
   pagination?: TablePaginationProps;

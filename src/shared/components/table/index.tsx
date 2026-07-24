@@ -10,6 +10,10 @@ export function Table<T>(props: TableProps<T>) {
     return <TableLoading />;
   }
 
+  if (props.data.length <= 0) {
+    return <div className="text-center">{props.noDataMessage || <p className="text-3xl">No results found</p>}</div>;
+  }
+
   return (
     <div className="flex flex-col flex-1">
       <table>
