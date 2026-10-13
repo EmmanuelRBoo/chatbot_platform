@@ -10,7 +10,7 @@ export function CreateBotHeader() {
   const { stage } = useCreateBot();
 
   return (
-    <header className="p-4 relative">
+    <header className="p-4 relative mb-6">
       <Link
         href="/dashboard"
         className="text-primary-100 hover:text-primary-200 w-fit flex items-center gap-4 text-2xl"

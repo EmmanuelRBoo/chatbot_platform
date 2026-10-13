@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  PromptStage,
-  DiagramStage,
-  ConfigurationStage,
-  CreateBotHeader,
-  CreateBotFooter,
-} from "../components";
+import { PromptStage, DiagramStage, ConfigurationStage, CreateBotHeader, CreateBotFooter } from "../components";
 import { useCreateBot } from "../hooks/useCreateBot";
 
 export default function CreateBotScreen() {
@@ -24,7 +18,7 @@ export default function CreateBotScreen() {
   };
 
   return (
-    <main className="flex flex-col flex-1 gap-20">
+    <main className="flex flex-col flex-1 gap-4">
       <CreateBotHeader />
 
       {renderStage()}

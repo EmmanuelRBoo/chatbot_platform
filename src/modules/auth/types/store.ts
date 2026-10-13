@@ -1,3 +1,5 @@
+import type { WorkspaceProps } from "@/modules/menu/types/workspace";
+
 export type AuthPage = "SIGNIN" | "SIGNUP" | "FORGOT";
 
 export type AuthProps = {
@@ -33,6 +35,7 @@ export type AuthStoreProps = {
 export type SignInDto = {
   name: string;
   email: string;
+  currentWorkspace: WorkspaceProps;
   token: string;
 };
 

@@ -10,3 +10,4 @@ export * from "./select";
 export * from "./range";
 export * from "./toggle";
 export * from "./calendar";
+export * from "./modal";

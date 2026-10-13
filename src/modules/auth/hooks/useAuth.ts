@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { setCookie } from "cookies-next";
 
 import { useUserStore } from "@/shared/stores/user";
+import { notify } from "@/shared/utils";
+import { useWorkspaceStore } from "@/modules/menu/stores/workspace";
 import { signInService, signUpService, resetPasswordService, recoverLinkService } from "../services";
 import { useAuthStore } from "../stores/auth";
 import type { SignInProps, SignUpProps } from "../types/store";
@@ -22,6 +24,7 @@ export function useAuth() {
     setResetPassword,
   } = useAuthStore();
   const { setUser } = useUserStore();
+  const { setSelectedWorkspace } = useWorkspaceStore();
 
   const router = useRouter();
 
@@ -47,8 +50,10 @@ export function useAuth() {
       });
 
       setUser(res);
-
+      setSelectedWorkspace(res.currentWorkspace);
       router.push("/dashboard");
+
+      notify.custom("success", `Welcome back ${res.name}`);
     } catch (err) {
       console.log(err);
     } finally {
@@ -72,8 +77,11 @@ export function useAuth() {
       });
 
       setUser(res);
+      setSelectedWorkspace(res.currentWorkspace);
 
       router.push("/dashboard");
+
+      notify.custom("success", `Welcome ${res.name}`);
     } catch (err) {
       console.log(err);
     } finally {

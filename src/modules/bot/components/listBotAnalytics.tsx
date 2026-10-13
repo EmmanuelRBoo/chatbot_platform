@@ -2,9 +2,9 @@ import { TrendUpIcon } from "@phosphor-icons/react/ssr";
 
 export function ListBotAnalytics() {
   return (
-    <div className="grid grid-cols-4 gap-24">
+    <div className="grid grid-cols-4 gap-8">
       <div className="h-36 border flex flex-col justify-between p-8 rounded-xl bg-gscale-400">
-        <p className="font-bold text-lg">TOTAL BOTS</p>
+        <p className="font-bold text-lg">WORKFLOW BOTS</p>
 
         <div className="flex items-end-safe">
           <span className="text-4xl font-semibold mr-2">24</span>

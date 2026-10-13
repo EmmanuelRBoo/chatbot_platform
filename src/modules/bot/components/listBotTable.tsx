@@ -5,16 +5,20 @@ import Link from "next/link";
 
 import { Table } from "@/shared/components";
 import { date } from "@/shared/utils";
+import { useWorkspace } from "@/modules/menu/hooks/useWorkspace";
 import { ListBotStatus, ListBotActions } from "../components";
 import { useListBot } from "../hooks/useListBot";
 import type { ListBotStatusProps } from "../types/listBot";
 
 export function ListBotTable() {
   const { bots, listMeta, fetchListBots, changePagination, loading } = useListBot();
+  const { selectedWorkspace } = useWorkspace();
 
   useEffect(() => {
-    fetchListBots();
-  }, []);
+    if (selectedWorkspace?.id) {
+      fetchListBots();
+    }
+  }, [selectedWorkspace]);
 
   return (
     <Table

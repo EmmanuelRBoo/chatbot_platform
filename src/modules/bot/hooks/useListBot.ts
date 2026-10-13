@@ -1,4 +1,5 @@
 import { notify } from "@/shared/utils";
+import { useWorkspaceStore } from "@/modules/menu/stores/workspace";
 import type { ListBotStatusProps } from "../types/listBot";
 import { useListBotStore } from "../stores/listBot";
 import { listBotService, updateStatusService, deleteBotService } from "../services";
@@ -17,6 +18,7 @@ export function useListBot() {
     setFilters,
     clearFilters,
   } = useListBotStore();
+  const { selectedWorkspace } = useWorkspaceStore();
 
   const fetchChangeStatus = async (id: string, status: ListBotStatusProps) => {
     try {
@@ -43,9 +45,9 @@ export function useListBot() {
   const fetchListBots = async () => {
     setLoading(true);
 
-    const response = await listBotService(filter, listMeta);
+    const response = await listBotService(filter, listMeta, selectedWorkspace!.id);
 
-    setBots(response.data);
+    setBots(response.data || []);
     setListMeta(response.meta);
 
     setLoading(false);
